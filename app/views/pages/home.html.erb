@@ -1,11 +1,19 @@
-<div class="hero-unit">
-	<h1>Welcome to Lulurails!</h1>
-	<p>
-		This page is a working project for
-		<%= link_to "One Month Rails", "http://onemonthrails.com" %> application.
-	</p>
+<% if user_signed_in? %>
+	<div class="hero-unit">
+		<h1>Welcome to Lulurails!</h1>
+		<p>You are logged in!<p>
+	<div>
 
-	<p> 
-		<%= link_to "Sign Up Now!", "#", class: "btn btn-primary btn-large" %>
-	</p>
-</div>
+<% else %>
+	<div class="hero-unit">
+		<h1>Welcome to Lulurails!</h1>
+		<p>
+			This page is a working project for
+			<%= link_to "One Month Rails", "http://onemonthrails.com" %> application.
+		</p>
+
+		<p> 
+			<%= link_to "Sign Up Now!", new_user_registration_path, class: "btn btn-primary btn-large" %>
+		</p>
+	</div>
+<% end %>
